@@ -1,0 +1,9 @@
+<h1 class="header">{{title}}</h1>
+<div class="posts-wrapper">
+  <app-post-board-item (postAction)="onPostAction($event)"></app-post-board-item>
+  <app-post-board-item
+    *ngFor="let post of postsData; trackBy: trackBy"
+    [post]="post"
+    (postAction)="onPostAction($event)">
+  </app-post-board-item>
+</div>

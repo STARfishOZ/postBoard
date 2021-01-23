@@ -1,0 +1,4 @@
+<app-post-board [title]="title"
+                [postsData]="postsData$ | async"
+                (postAction)="onPostAction($event)">
+</app-post-board>

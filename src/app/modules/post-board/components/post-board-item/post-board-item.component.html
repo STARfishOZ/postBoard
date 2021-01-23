@@ -1,0 +1,13 @@
+<div *ngIf="post" class="post-item-wrapper">
+  <h4 class="post-item__author">{{post?.name?.firstName}} {{post?.name?.lastName}}</h4>
+  <span class="post-item__text">{{post?.text}}</span>
+</div>
+<div class="post-item__action">
+  <ng-container *ngIf="!post">
+    <h4 class="post-item__author">Add new note</h4>
+    <button mat-button (click)="openPopover(postActionNames.create, postActionType.Create)">Create</button>
+  </ng-container>
+  <ng-container *ngIf="post">
+    <button mat-button (click)="openPopover(postActionNames.edit, postActionType.Edit, post)">Edit</button>
+  </ng-container>
+</div>

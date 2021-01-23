@@ -1,0 +1,6 @@
+<h2 *ngIf="isAuthorized()">Authorized</h2>
+
+<button
+  *ngIf="!isAuthorized()"
+  mat-button
+  (click)="login(UserType.Guest)">Login as Guest</button>

@@ -1,0 +1,44 @@
+<h1 mat-dialog-title>{{postManipulationData.title}}</h1>
+<mat-dialog-content [formGroup]="form">
+  <mat-form-field>
+    <label>First Name</label>
+    <input matInput
+           formControlName="firstName">
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <label>Last Name</label>
+    <input matInput
+           formControlName="lastName">
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <label>Published</label>
+    <input matInput
+           formControlName="date">
+  </mat-form-field>
+  <br />
+  <mat-form-field>
+    <label>What would you like to say?</label>
+    <textarea matInput
+              formControlName="text"></textarea>
+  </mat-form-field>
+</mat-dialog-content>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+  <button *ngIf="postManipulationData.action === postActionType.Create"
+          mat-button
+          (click)="onModalClose(postActionType.Create)">
+    Add
+  </button>
+  <button *ngIf="postManipulationData.action === postActionType.Edit"
+          mat-button
+          (click)="onModalClose(postActionType.Delete)">
+    Delete
+  </button>
+  <button *ngIf="postManipulationData.action === postActionType.Edit"
+          mat-button
+          (click)="onModalClose(postActionType.Edit)">
+    Save
+  </button>
+</div>
