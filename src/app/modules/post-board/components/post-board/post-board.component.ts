@@ -64,6 +64,7 @@ export class PostBoardComponent implements OnChanges {
   private initializePosts(data: PostItemInterface[]): void {
     let postsData = this.getDataFromLocalStorage();
     postsData = !postsData ? data : postsData;
+    // fixing luxon DateTime object after local storage
     postsData.forEach(item => item.date = DateTime.fromISO(item.date));
 
     this.sortPostDataByDate(postsData);
