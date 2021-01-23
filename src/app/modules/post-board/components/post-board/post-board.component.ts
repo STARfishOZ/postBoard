@@ -58,6 +58,9 @@ export class PostBoardComponent implements OnChanges {
       .sort((a, b) => a.date.toMillis() - b.date.toMillis());
   }
 
+  /**
+   * Check if there is data in local storage to use and if not use the one coming outside
+   */
   private initializePosts(data: PostItemInterface[]): void {
     let postsData = this.getDataFromLocalStorage();
     postsData = !postsData ? data : postsData;
@@ -66,10 +69,9 @@ export class PostBoardComponent implements OnChanges {
     this.sortPostDataByDate(postsData);
   }
 
-  private saveDataToLocalStorage(data: PostItemInterface[]): void {
-    this.localStorageService.setPostsDataToStorage(data);
-  }
-
+  /**
+   * Use data from local storage
+   */
   private getDataFromLocalStorage(): PostItemInterface[] {
     return this.localStorageService.getPostsDataFromStorage();
   }

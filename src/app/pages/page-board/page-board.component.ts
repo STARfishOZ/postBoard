@@ -51,6 +51,8 @@ export class PageBoardComponent implements OnInit {
       this.postsData.push({...keys, id: getRandomInt(1, 999999)});
     }
 
+    // I dont like it to be here, should be located inside of post-board.module to finish the concept of fully re-usable component
+    // But I think this example is enough to understand if this fit
     this.localStorageService.setPostsDataToStorage(this.postsData);
     this.updateData();
   }
